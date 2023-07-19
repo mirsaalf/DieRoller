@@ -28,9 +28,13 @@ namespace DieRoller
         /// <returns>Returns the new random number</returns>
         public byte Roll()
         {
-            // Generate random number + set to the face vallue
-            // Return a new number 
-            throw new NotImplementedException();
+            // Generate random number
+            Random random = new Random();
+            byte newValue = (byte)random.Next(1, 7);
+            
+            FaceValue = newValue;
+            
+            return FaceValue;
         }
     }
 }
