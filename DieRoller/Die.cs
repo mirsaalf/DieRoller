@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,12 @@ namespace DieRoller
     /// </summary>
     public class Die
     {
+        private static Random _random;
+
+        static Die()
+        {
+            _random = new Random();
+        }
         /// <summary>
         /// Creates the die and rolls it to start
         /// with a random number 
@@ -41,8 +48,7 @@ namespace DieRoller
             if (!isHeld)
             {
                 // Generate random number
-                Random random = new Random();
-                byte newValue = (byte)random.Next(1, 7);
+                byte newValue = (byte)_random.Next(1, 7);
             
                 FaceValue = newValue;
 
